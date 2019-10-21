@@ -77,3 +77,32 @@ const respuestaMenoresa2=
         .filter((y) => y < 10);
 
 console.log("respuesta respuestaMenoresa2:",respuestaMenoresa2);
+
+
+//operadores
+//buscar
+const respuestaFind =
+    arreglo.find(
+       (valorActual) => {
+           return valorActual === 8;
+});
+console.log("respuesta respuestaFind:",respuestaFind);
+
+//regresa el indice del array
+const respuestaFindIndex =
+    arreglo.findIndex(
+        (valorActual) => {
+            return valorActual === 8;
+        });
+
+console.log("respuesta findIndex:",respuestaFindIndex);
+
+const respuestaReduce =
+    arreglo.reduce(
+        (valorInicial, valorActual,indice,array) => {
+            return valorInicial + valorActual;
+        },0 //valor inicial
+
+        );
+console.log("array", arreglo);
+console.log("respuesta respuestaReduce:",respuestaReduce);
