@@ -45,7 +45,7 @@ const respuestaFilter= arreglo
 console.log("respuesta filter:",respuestaFilter);
 
 //Operador some
-//numero mayor a 7 y menor a 11
+//numero mayor a 7 y menor a 11 si al menos uno cumple
 const respuestaSome= arreglo
     .some(
         function (valorActual,indiceActual, arreglo) {
@@ -54,7 +54,7 @@ const respuestaSome= arreglo
     ); //devolver un booleano verdadero o falso
 console.log("respuesta respuestaSome:",respuestaSome);
 
-//operador AND -> Every
+//operador AND -> Every .. si todos cumplen
 const respuestaEveri= arreglo
     .every(
         function (valorActual,indiceActual, arreglo) {
