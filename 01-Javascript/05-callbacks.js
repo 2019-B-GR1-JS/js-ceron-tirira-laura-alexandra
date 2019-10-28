@@ -61,7 +61,7 @@ function mapLocal(arreglo,funcion) {
             arregloMap.push(arreglo[indiceInicial]+5);
         };
     }
-    console.log(arregloMap);
+    console.log("Map: "+arregloMap);
     return arregloMap;
 }
 
@@ -70,7 +70,7 @@ mapLocal([1,3,4,6,7],
     }
 );
 
-//filter
+//filter devuelve un arreglo filtrado
 function filterLocal(arreglo,funcion) {
     const arregloFilter = [];
     for(let indiceInicial=0; indiceInicial < arreglo.length; indiceInicial++)
@@ -80,7 +80,7 @@ function filterLocal(arreglo,funcion) {
            arregloFilter.push(arreglo[indiceInicial]);
         };
     }
-    console.log(arregloFilter);
+    console.log("filter: " +arregloFilter);
     return arregloFilter;
 }
 
@@ -90,7 +90,7 @@ return valorActual > 7
     }
 );
 
-//some
+//some devuelve verdadero o falso si al menos uno cumple
 function someLocal(arreglo,funcion) {
     let someRespuesta = false;
     for(let indiceInicial=0; indiceInicial < arreglo.length; indiceInicial++)
@@ -100,7 +100,7 @@ function someLocal(arreglo,funcion) {
            someRespuesta= true;
         };
     }
-    console.log(someRespuesta);
+    console.log("Some: "+ someRespuesta);
     return someRespuesta;
 }
 
@@ -110,26 +110,69 @@ someLocal([40,1,3,4,6,7,9,11,23],
     }
 );
 
-//every
+//every devuelve verdadero o falso si todos cumplen
 
-function veryLocal(arreglo,funcion) {
-    let someRespuesta = false;
+function everyLocal(arreglo,funcion) {
+    let everyRespuesta = false;
     for(let indiceInicial=0; indiceInicial < arreglo.length; indiceInicial++)
     {
         if (funcion(arreglo[indiceInicial]))
         {
-            someRespuesta= true;
+            everyRespuesta= true;
         };
     }
-    console.log(someRespuesta);
-    return someRespuesta;
+    console.log("Every: "+everyRespuesta);
+    return everyRespuesta;
 }
 
-everyLocal([40,1,3,4,6,7,9,11,23],
+everyLocal([40,2,3,4,6,7,9,11,23],
     (valorActual) =>{
-        return valorActual > 7
+        return valorActual > 1
     }
 );
+
+//find regresa el elemento encontrado
+
+function findLocal(arreglo,funcion) {
+    let  respuestaFind= undefined;
+    let indice = undefined;
+    for(let indiceInicial=0; indiceInicial < arreglo.length; indiceInicial++)
+    {
+        if (funcion(arreglo[indiceInicial]))
+        {
+            respuestaFind= arreglo[indiceInicial];
+            indice= indiceInicial
+        };
+    }
+    console.log("Find -> indice: " + indice+ " valor: " + respuestaFind);
+    return respuestaFind;
+}
+
+findLocal([40,2,3,4,6,7,9,11,23],
+    (valorActual) =>{
+        return valorActual === 7
+    }
+);
+
+//reduce
+function reduceLocal(arreglo, funcion, valorInicial) {
+    let reduceResultado = valorInicial;
+    for (let indiceInicial = 0; indiceInicial < arreglo.length;indiceInicial++)
+    {
+        reduceResultado = funcion(reduceResultado,arreglo[indiceInicial], indiceInicial, arreglo );
+    }
+
+    console.log('Reduce: '+ reduceResultado);
+    return reduceResultado;
+}
+
+reduceLocal(
+    [40,2,3,4,6,7,9,11,23],
+    (valorInicial, valorActual, indiceActual, arreglo) => {
+        return valorInicial + valorActual;
+    },0
+);
+
 
 
 
