@@ -1,6 +1,15 @@
-<h1>Titulo</h1>
+
+<h1>{{titulo}}</h1>
 <img width="200px"
-      height="200px"
-      src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwivs7X39P7lAhWkzlkKHaiCCGEQjRx6BAgBEAQ&url=https%3A%2F%2Fas.com%2Fepik%2F2018%2F04%2F28%2Fportada%2F1524913221_572475.html&psig=AOvVaw0fWT31RXdnbS_5ljXzbn0R&ust=1574549715767679">
-<p>texto</p>
-<button (click)="saludar()" )>Hola</button>
+     height="200px"
+     [src]="imagen"
+     alt="">
+
+<!-- Property binding -->
+<!-- [atributo]="valor" ->Atributos -->
+<p>{{textoImagen}}</p>
+
+<button (click)="saludar()" >
+  {{textoBoton}}
+</button>
+

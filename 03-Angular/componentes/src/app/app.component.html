@@ -5,6 +5,21 @@
 </style>
 
 <h1>INICIO</h1>
-<app-mi-primer-componente></app-mi-primer-componente>
-<app-mi-primer-componente></app-mi-primer-componente>
-<app-mi-primer-componente></app-mi-primer-componente>
+
+<app-mi-primer-componente [titulo]="arregloObjetos[0].apellido"
+                          [textoImagen]="arregloObjetos[0].nombre"
+                          [textoBoton]="arregloObjetos[0].sueldo.toString()"
+                          [imagen]="arregloObjetos[0].comida">
+</app-mi-primer-componente>
+<app-mi-primer-componente [titulo]="arregloObjetos[1].apellido"
+                          [textoImagen]="arregloObjetos[1].nombre"
+                          [textoBoton]="arregloObjetos[1].sueldo.toString()"
+                          [imagen]="arregloObjetos[1].comida">
+
+</app-mi-primer-componente >
+<app-mi-primer-componente [titulo]="arregloObjetos[2].apellido"
+                          [textoImagen]="arregloObjetos[2].nombre"
+                          [textoBoton]="arregloObjetos[2].sueldo.toString()"
+                          [imagen]="arregloObjetos[2].comida">
+
+</app-mi-primer-componente>
