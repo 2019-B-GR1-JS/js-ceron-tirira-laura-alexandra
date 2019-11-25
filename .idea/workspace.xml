@@ -31,7 +31,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\03-Angular\componentes\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -69,7 +69,9 @@
       <workItem from="1572356833230" duration="3003000" />
       <workItem from="1572377532600" duration="496000" />
       <workItem from="1574110198886" duration="7116000" />
-      <workItem from="1574455594210" duration="3189000" />
+      <workItem from="1574455594210" duration="3473000" />
+      <workItem from="1574657543250" duration="2658000" />
+      <workItem from="1574710975422" duration="11616000" />
     </task>
     <servers />
   </component>
