@@ -22,7 +22,7 @@ export class AppComponent {
       id:1, //number
       "nombre":"Alex", //string
       apellido:"Cerón", //string
-      sueldo: 2.2, //number
+      sueldo: 7.2, //number
       casado: true, //boolean
       carro:null,
       ojos:undefined,
@@ -32,7 +32,7 @@ export class AppComponent {
       id:1, //number
       "nombre":"Eithan", //string
       apellido:"Cerón", //string
-      sueldo: 2.2, //number
+      sueldo: 9.2, //number
       casado: true, //boolean
       carro:null,
       ojos:undefined,
@@ -40,4 +40,10 @@ export class AppComponent {
     }
 
   ]
+
+imprimirSueldo(sueldo:string)
+{
+  console.log(sueldo);
+}
+
 }

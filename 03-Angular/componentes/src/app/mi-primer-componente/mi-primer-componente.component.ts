@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from "@angular/core";
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from "@angular/core";
 
 @Component({
   selector: 'app-mi-primer-componente',
@@ -13,11 +13,19 @@ export class MiPrimerComponenteComponent implements OnInit , OnDestroy{
   @Input()
   public imagen:string;
 
-  @Input()
+  @Input() //atributo o propiedad
   public textoImagen:string;
 
   @Input()
   public textoBoton:string;
+
+  @Output() //evento del componente
+  public cambioSueldo = new EventEmitter();
+
+  @Input()
+  public ancho:string;
+  @Input()
+  public largo:string;
 
   constructor() {
     console.log('instanciando'); //no se debe meter logica de negocio en el constructor
@@ -39,6 +47,18 @@ export class MiPrimerComponenteComponent implements OnInit , OnDestroy{
     alert('HOLAAAAAA');
   }
 
+  aumentarSueldo()
+  {
+    this.textoBoton = (Number(this.textoBoton) +1).toString();
+
+    //transformar a numero otr manera
+    //this.textoBoton = (+(this.textoBoton) +1).toString();
+
+
+    //this.ancho = (this.ancho)
+
+    this.cambioSueldo.emit(this.textoBoton); //se emite el evento
+  }
 
 //class (etiquta html)
 //  instancia a la calse

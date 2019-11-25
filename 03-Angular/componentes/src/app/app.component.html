@@ -9,7 +9,7 @@
 <app-mi-primer-componente [titulo]="arregloObjetos[0].apellido"
                           [textoImagen]="arregloObjetos[0].nombre"
                           [textoBoton]="arregloObjetos[0].sueldo.toString()"
-                          [imagen]="arregloObjetos[0].comida">
+                          [imagen]="arregloObjetos[0].comida" (cambioSueldo)="imprimirSueldo($event)">
 </app-mi-primer-componente>
 <app-mi-primer-componente [titulo]="arregloObjetos[1].apellido"
                           [textoImagen]="arregloObjetos[1].nombre"
