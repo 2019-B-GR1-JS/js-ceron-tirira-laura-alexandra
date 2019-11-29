@@ -9,7 +9,6 @@
 <!-- [atributo]="valor" ->Atributos -->
 <p>{{textoImagen}}</p>
 
-
 <!-- Event binding -->
 <!-- [evento]="mifuncion($event)" ->event -->
 
@@ -20,4 +19,27 @@
 >
   {{textoBoton}}
 </button>
+
+
+<input type="text" (change)="obtenerValor1($event)">
+<input type="text" (change)="obtenerValor2($event)" >
+<label for=""></label>
+
+<button (click)="sumar()">Sumar</button>
+<button (click)="restar()">Restar</button>
+<button (click)="multiplicar()">Multiplicar</button>
+<button (click)="dividir()">Dividir</button>
+
+<h2>Suma</h2>
+<h2>{{suma}}</h2>
+<h2>Resta</h2>
+<h2>{{resta}}</h2>
+<h2>Multiplicacion</h2>
+<h2>{{multiplicacion}}</h2>
+<h2>Division</h2>
+<h2>{{division}}</h2>
+
+
+
+<button (click)="calculadora()">Calculadora</button>
 

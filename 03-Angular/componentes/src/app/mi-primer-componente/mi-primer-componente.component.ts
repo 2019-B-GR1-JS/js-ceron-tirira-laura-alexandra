@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from "@angular/core";
+import {every} from "rxjs/operators";
 
 @Component({
   selector: 'app-mi-primer-componente',
@@ -9,6 +10,7 @@ export class MiPrimerComponenteComponent implements OnInit , OnDestroy{
 
   ancho = 200;
   alto = 200;
+
   @Input()
   public  titulo:string
 
@@ -23,6 +25,16 @@ export class MiPrimerComponenteComponent implements OnInit , OnDestroy{
 
   @Output() //evento del componente
   public cambioSueldo = new EventEmitter();
+
+
+num_uno =0;
+
+num_dos=0;
+
+suma=0;
+resta=0;
+multiplicacion=0;
+division=0;
 
   constructor() {
     console.log('instanciando'); //no se debe meter logica de negocio en el constructor
@@ -54,8 +66,86 @@ export class MiPrimerComponenteComponent implements OnInit , OnDestroy{
     this.cambioSueldo.emit(this.textoBoton); //se emite el evento
   }
 
-//class (etiquta html)
-//  instancia a la calse
-//  clase esta lista
-// clase se destruye
+  obtenerValor1(evento)
+  {
+    console.log(evento);
+    const dato= evento.srcElement.value;
+    console.log(dato);
+    this.num_uno= dato;
+    //this.num_dos = this.num_uno;
+
+    console.log(this.num_uno);
+    //console.log(this.num_dos);
+    this.suma=this.sumar();
+    this.resta=this.restar();
+    this.multiplicacion=this.multiplicar();
+    this.division=this.dividir();
+
+
+  }
+
+  obtenerValor2(evento)
+  {
+    console.log(evento);
+    const dato= evento.srcElement.value;
+    console.log(dato);
+    this.num_dos= dato;
+
+    console.log(this.num_dos);
+
+    this.suma=this.sumar();
+    this.resta=this.restar();
+    this.multiplicacion=this.multiplicar();
+    this.division=this.dividir();
+
+  }
+
+  sumar()
+  {
+    console.log("suma")
+    console.log(this.num_uno);
+    console.log(this.num_dos);
+    const suma = Number(this.num_uno) + Number(this.num_dos)
+    console.log(suma)
+    return suma;
+  }
+
+  restar()
+  {
+    console.log("resta")
+    const resta = Number(this.num_uno) - Number(this.num_dos)
+    console.log(resta)
+    return resta;
+  }
+
+  multiplicar()
+  {
+    console.log("multiplicacion")
+    const multiplicacion = Number(this.num_uno) * Number(this.num_dos)
+    console.log(multiplicacion)
+    return multiplicacion;
+  }
+
+  dividir()
+  {
+    console.log("division")
+    const division = Number(this.num_uno) / Number(this.num_dos)
+    console.log(division)
+    return division;
+  }
+
+
+  calculadora()
+  {
+    //suma
+    console.log("suma")
+    const suma= this.sumar();
+    console.log("resta")
+    const resta= this.restar();
+    console.log("multiplicaicion")
+    const multiplicacion= this.multiplicar();
+    console.log("division")
+    const division= this.dividir();
+  }
+
 }
