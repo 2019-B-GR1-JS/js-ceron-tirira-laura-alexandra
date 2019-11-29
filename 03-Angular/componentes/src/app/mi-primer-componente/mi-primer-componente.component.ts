@@ -7,6 +7,8 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from "@angula
 })
 export class MiPrimerComponenteComponent implements OnInit , OnDestroy{
 
+  ancho = 200;
+  alto = 200;
   @Input()
   public  titulo:string
 
@@ -21,11 +23,6 @@ export class MiPrimerComponenteComponent implements OnInit , OnDestroy{
 
   @Output() //evento del componente
   public cambioSueldo = new EventEmitter();
-
-  @Input()
-  public ancho:string;
-  @Input()
-  public largo:string;
 
   constructor() {
     console.log('instanciando'); //no se debe meter logica de negocio en el constructor
@@ -50,13 +47,10 @@ export class MiPrimerComponenteComponent implements OnInit , OnDestroy{
   aumentarSueldo()
   {
     this.textoBoton = (Number(this.textoBoton) +1).toString();
-
     //transformar a numero otr manera
     //this.textoBoton = (+(this.textoBoton) +1).toString();
-
-
-    //this.ancho = (this.ancho)
-
+    this.alto = this.alto +1;
+    this.ancho = (this.ancho +1 );
     this.cambioSueldo.emit(this.textoBoton); //se emite el evento
   }
 
