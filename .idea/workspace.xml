@@ -23,7 +23,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/04-Ionic/comidav2/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -31,7 +31,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\03-Angular\componentes\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\04-Ionic\comidav2\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -78,7 +78,9 @@
       <workItem from="1575328383571" duration="401000" />
       <workItem from="1575328962622" duration="17000" />
       <workItem from="1575328982622" duration="731000" />
-      <workItem from="1576269173278" duration="6302000" />
+      <workItem from="1576269173278" duration="6616000" />
+      <workItem from="1578085663278" duration="3390000" />
+      <workItem from="1578327780768" duration="19981000" />
     </task>
     <servers />
   </component>

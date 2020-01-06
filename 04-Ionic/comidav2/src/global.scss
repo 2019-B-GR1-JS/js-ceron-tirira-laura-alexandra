@@ -24,3 +24,11 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.ng-invalid.ng-dirty.ng-touched {
+  border-color: red;
+}
+
+.ng-valid.ng-dirty.ng-touched {
+  border-color: green;
+}
