@@ -1,0 +1,37 @@
+<table>
+  <tr><th>Nombre</th></tr>
+  <th>Apellido></th>
+  <th>Correo</th>
+  <th>Password</th>
+  <tr>
+    <td>Laura</td>
+    <td>Ceron</td>
+    <td>cefe@gmail.com</td>
+    <td>hola</td>
+  </tr>
+</table>
+<table>
+  <tr><th>Nombre</th></tr>
+  <th>Apellido></th>
+  <th>Correo</th>
+  <th>Password</th>
+  <th>Acciones</th>
+  <tr *ngFor="let usuario of usuarios">
+    <td>{{usuario.nombre}}</td>
+    <td>{{usuario.apellido}}</td>
+    <td>{{usuario.correo}}</td>
+    <td>{{usuario.password}}</td>
+    <td>
+      <p-button label="Editar" (click)="editar(usuario)"></p-button>
+      <p-button label="Eliminar" (click)="eliminar(usuario)"></p-button>
+    </td>
+  </tr>
+</table>
+<div *ngFor="let usuario of usuarios">
+  <p>Nombre: {{usuario.nombre}}</p>
+  <p>Apellido: {{usuario.apellido}}</p>
+  <p>Correo: {{usuario.correo}}</p>
+  <p>Password: {{usuario.password}}</p>
+</div>
+
+<router-outlet></router-outlet>
