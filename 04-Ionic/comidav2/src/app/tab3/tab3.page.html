@@ -7,119 +7,124 @@
 </ion-header>
 
 <ion-content>
-  <!-- Formularios de TEMPLATE -->
-  <!-- 1) Importar el modulo de formularios -->
+  <!-- Formulario de TEMPLATE --->
+  <!-- Importar el modulo de formulario -->
 
-  <form
-          (ngSubmit)="crearUsuario(usuarioFormulario)"
-          #usuarioFormulario="ngForm">
+  <form (ngSubmit)="crearUsuario(usuarioFormulario)"  #usuarioFormulario="ngForm">
+    <!--{{usuario.nombre}}-->
     <!-- Variable de template -->
-    <!--  <h1 #papa>papa</h1> -->
+    <!--h1 #papa>papa</h1-->
     <ion-item>
       <h1>Formulario</h1>
     </ion-item>
     <ion-item>
-      <ion-label>Nombre :</ion-label>
+      <ion-label position="floating">Nombre</ion-label>
       <ion-input
               type="text"
-              name="nombre"
+              name = "nombre"
               required
-              placeholder="Ej: Adrian Eguez"
-              title="Llenar el nombre."
+              placeholder = "Ej: Danilo Nieto"
+              title="Llenar el nombre"
               minlength="3"
-              maxlength="200"
+              maxlength="10"
               [(ngModel)]="usuario.nombre"
               #nombreInput="ngModel"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input
+              type="text"
+              name = "correo"
+              required
+              email
+              placeholder = "Ej: prueba@ejemplo.com"
+              title="Llenar el correo"
+              minlength="5"
+              maxlength="30"
+              [(ngModel)]="usuario.correo"
+              #correoInput="ngModel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input
+              type="number"
+              name = "edad"
+              required
+              placeholder = "Ej: 23"
+              title="Llenar su edad"
+              min="3"
+              max="99"
+              [(ngModel)]="usuario.edad"
+              #edadInput="ngModel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input
+              type="password"
+              name = "password"
+              required
+              placeholder = "Ej: password"
+              title="Llenar su password"
+              [(ngModel)]="usuario.password"
+              #passwordInput="ngModel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Conf. Password</ion-label>
+      <ion-input
+              type="password"
+              name = "confpassword"
+              required
+              placeholder = "Ej: password"
+              title="Confirmar password"
+              [(ngModel)]="usuario.confpassword"
+              #confPasswordInput="ngModel"></ion-input>
+    </ion-item>
+    <!--input type="text"
+           name = "nombre"
+           required
+           minlength="3"
+           maxlength="10"
+           [(ngModel)]="usuario.nombre"
+           #nombreInput="ngModel">
+    <input type="text"
+           name = "correo"
+           email
+           required
+           [(ngModel)]="usuario.correo"
+           #nombreInput="ngModel"-->
+    <!--input type="text"
+           name = "edad"
+           pattern="([0-9]+)"
+           min="0"
+           max="150"
+           required
+           [(ngModel)]="usuario.edad"
+           #nombreInput="ngModel"-->
+    <!--p>Valid {{nombreInput.valid}}</p>
+    <p>Invalid {{nombreInput.invalid}}</p>
+    <p>Touch {{nombreInput.touched}}</p>
+    <p>Untouched {{nombreInput.untouched}}</p>
+    <p>Disabled {{nombreInput.disabled}}</p>
+    <p>Enable {{nombreInput.enabled}}</p>
+    <p>Pristine {{nombreInput.pristine}}</p>
+    <p>Dirty{{nombreInput.pristine}}</p>
+    <h3>Errors</h3>
+    <pre>
+      {{nombreInput.errors | json}}
+    </pre-->
 
-
-      <p>Valid {{nombreInput.valid}}</p>
-      <p>Invalid {{nombreInput.invalid}}</p>
-      <p>Touch {{nombreInput.touched}}</p>
-      <p>Untouched {{nombreInput.untouched}}</p>
-      <p>Disabled {{nombreInput.disabled}}</p>
-      <p>Enabled {{nombreInput.enabled}}</p>
-      <p>Pristine {{nombreInput.pristine}}</p>
-      <p>Dirty {{nombreInput.dirty}}</p>
-      <h3>Errores</h3>
-      <pre>
-        {{nombreInput.errors | json}}
-      </pre>
-
+    <p *ngIf="nombreInput.touched && nombreInput.dirty && nombreInput.errors.required"> Este campo es requerido. </p>
+    <p *ngIf="correoInput.touched && correoInput.dirty && correoInput.errors.email"> Correo no valido. </p>
+    <p *ngIf="edadInput.touched && edadInput.dirty && edadInput.errors?.minlenght"> Llenar con una edad minima de 3. </p>
+    <div *ngIf="passwordInput.touched && passwordInput.dirty && confPasswordInput.touched && confPasswordInput.dirty">
+      <p *ngIf="validarPasswordsIguales()">Las passwords no coinciden</p>
     </div>
 
-
-    <ion-item>
-      <ion-label>Correo: </ion-label>
-      <ion-input
-              type="text"
-              name="correo"
-              email
-              required
-              [(ngModel)]="usuario.correo"
-              #correoInput="ngModel"
-              placeholder="Ej: correo@ejemplo.com"
-              title="Llenar el correo."
-      ></ion-input>
-    </ion-item>
-
-
-
-    <ion-item>
-      <ion-label>Edad: </ion-label>
-      <ion-input
-              type="text"
-              name="edad"
-              pattern="([0-9])+"
-              min="0"
-              max="150"
-              [(ngModel)]="usuario.edad"
-              #edadInput="ngModel"
-              placeholder="Ej: 12"
-              title="Llenar la edad."
-      ></ion-input>
-    </ion-item>
-
-
-    <ion-item>
-      <ion-label>Password: </ion-label>
-      <ion-input
-              type="password"
-              name="password"
-              required
-              pattern="([0-9])+"
-              [(ngModel)]="usuario.password"
-              #passwordInput="ngModel"
-              placeholder="Ej: ClaveSecreta123"
-              title="Llenar el password."
-      ></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Conf. Password: </ion-label>
-      <ion-input
-              type="password"
-              name="passwordConfirmacion"
-              required
-              pattern="([0-9])+"
-              [(ngModel)]="usuario.passwordConfirmacion"
-              #passwordConfirmacionInput="ngModel"
-              placeholder="Ej: ClaveSecreta123"
-              title="Llenar la confirmacion de password."
-      ></ion-input>
-    </ion-item>
-
-
-
-    <ion-button expand="full"
-                [disabled]="validarPasswordsIguales() ||
-                            (usuarioFormulario.valid && usuario.password === '' ||
-                             usuarioFormulario.invalid)">
+    <ion-button [disabled]="usuarioFormulario.invalid && !validarPasswordsIguales()" expand="full">
       Aceptar
     </ion-button>
+    <!--button >Aceptar</button-->
   </form>
-  <br>
-  <br>
   <br>
   <br>
   <br>
