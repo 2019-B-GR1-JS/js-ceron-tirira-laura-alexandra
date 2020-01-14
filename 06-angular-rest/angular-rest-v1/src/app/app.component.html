@@ -1,0 +1,48 @@
+<table>
+  <tr> <!-- table row -->
+    <th>Nombre</th> <!-- table header -->
+    <th>Apellido</th> <!-- table header -->
+    <th>Correo</th> <!-- table header -->
+    <th>Password</th> <!-- table header -->
+  </tr>
+  <tr> <!-- table row-->
+    <td>Laura</td> <!-- table detail -->
+    <td>Ceron</td> <!-- table detail -->
+    <td>a@a.com</td> <!-- table detail -->
+    <td>1234</td> <!-- table detail -->
+  </tr>
+</table>
+
+<table>
+  <tr> <!-- table row -->
+    <th>Nombre</th> <!-- table header -->
+    <th>Apellido</th> <!-- table header -->
+    <th>Correo</th> <!-- table header -->
+    <th>Password</th> <!-- table header -->
+    <th>Acciones</th> <!-- table header -->
+  </tr>
+  <tr *ngFor="let usuario of usuarios"> <!-- table row-->
+    <td>{{usuario.nombre}}</td> <!-- table detail -->
+    <td>{{usuario.apellido}}</td> <!-- table detail -->
+    <td>{{usuario.correo}} </td> <!-- table detail -->
+    <td>{{usuario.password}}</td> <!-- table detail -->
+    <td>
+      <p-button label="EDITAR" (click)="editar(usuario)">
+      </p-button>
+      <p-button label="ELIMINAR" (click)="eliminar(usuario)">
+      </p-button>
+    </td> <!-- table detail -->
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
