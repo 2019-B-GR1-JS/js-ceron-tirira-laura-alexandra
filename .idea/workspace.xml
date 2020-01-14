@@ -31,7 +31,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\06-angular-rest\angular-rest\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\04-Ionic\comidav2\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -84,7 +84,8 @@
       <workItem from="1578371805515" duration="2833000" />
       <workItem from="1578689697863" duration="9108000" />
       <workItem from="1578954737916" duration="3419000" />
-      <workItem from="1578974729281" duration="9028000" />
+      <workItem from="1578974729281" duration="12028000" />
+      <workItem from="1579011071153" duration="4234000" />
     </task>
     <servers />
   </component>

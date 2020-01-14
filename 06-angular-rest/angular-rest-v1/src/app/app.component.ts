@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import { FILAS } from './constantes/numero-filas-por-tabla';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit{
   title = 'angular-rest-v1';
   url = 'http://localhost:1337';
   usuarios = [];
-  //FILAS = FILAS;
+  FILAS = FILAS;
   nombreFiltrado = '';
   apellidoFiltrado = '';
   correoFiltrado = '';
@@ -60,6 +61,29 @@ export class AppComponent implements OnInit{
     console.log('Eliminando usuario', usuario);
   }
 
+  usuariosFiltrados() {
+    return this.usuarios
+      .filter(
+        (usuario) => {
+          return usuario.nombre.toLowerCase().includes(this.nombreFiltrado.toLowerCase());
+        }
+      )
+      .filter(
+        (usuario) => {
+          return usuario.apellido.toLowerCase().includes(this.apellidoFiltrado.toLowerCase());
+        }
+      )
+      .filter(
+        (usuario) => {
+          return usuario.correo.toLowerCase().includes(this.correoFiltrado.toLowerCase());
+        }
+      )
+      .filter(
+        (usuario) => {
+          return usuario.password.toLowerCase().includes(this.passwordFiltrado.toLowerCase());
+        }
+      );
+  }
 
 }
 

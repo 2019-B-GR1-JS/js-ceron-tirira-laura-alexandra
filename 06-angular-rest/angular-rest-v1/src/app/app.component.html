@@ -35,13 +35,74 @@
   </tr>
 </table>
 
+<p-table [value]="usuariosFiltrados()"
+         [paginator]="true"
+         [rows]="FILAS">
+  <ng-template pTemplate="caption">
+    Lista de Usuarios
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Correo</th>
+      <th>Password</th>
+      <th>Acciones</th>
+    </tr>
+    <tr>
+      <th>
+        <input type="text"
+               pInputText
+               name="nombre"
+               [(ngModel)]="nombreFiltrado"
+        />
+      </th>
+      <th>
+        <input type="text"
+               pInputText
+               name="apellido"
+               [(ngModel)]="apellidoFiltrado"/>
+      </th>
+      <th>
+        <input type="text"
+               pInputText
+               name="correo"
+               [(ngModel)]="correoFiltrado"
+        />
+      </th>
+      <th>
+        <input type="text"
+               pInputText
+               name="password"
+               [(ngModel)]="passwordFiltrado"
+        />
+      </th>
+      <th>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-usuario>
+    <tr>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.apellido}}</td>
+      <td>{{usuario.correo}}</td>
+      <td>{{usuario.password}}</td>
+      <td>
+        <p-button label="EDITAR" (click)="editar(usuario)">
+        </p-button>
+        <p-button label="ELIMINAR" (click)="eliminar(usuario)">
+        </p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
 
-
-
-
-
-
-
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email">
+    <mat-hint>Errors appear instantly!</mat-hint>
+  </mat-form-field>
+</form>
 
 
 
