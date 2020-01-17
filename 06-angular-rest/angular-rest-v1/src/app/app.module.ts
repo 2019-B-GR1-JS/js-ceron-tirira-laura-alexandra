@@ -10,9 +10,15 @@ import {TableModule} from 'primeng/table';
 import {InputTextModule} from "primeng";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from "@angular/material/input";
+import { ModalEditarUsuarioComponent } from './modales/modal-editar-usuario/modal-editar-usuario.component';
+import {MatDialogModule} from "@angular/material/dialog";
 @NgModule({
   declarations: [
-    AppComponent //componentes
+    AppComponent,
+    ModalEditarUsuarioComponent //componentes
+  ],
+  entryComponents: [
+    ModalEditarUsuarioComponent
   ],
   imports: [ //modulos
     BrowserModule, //ngfor, ngif
@@ -23,7 +29,8 @@ import {MatInputModule} from "@angular/material/input";
     TableModule,
     InputTextModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [ //servicios
     UsuarioRestService
