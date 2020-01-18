@@ -62,27 +62,25 @@ export class AppComponent implements OnInit{
   editar(usuario) {
     console.log('Editando usuario', usuario);
     const matDialogRefModalEditarUsuario = this._matDialog
-      .open(ModalEditarUsuarioComponent,
-        {
-          width: '500px',
-          data: {
-            usuario,
-          }
-        }
-    );
-    const  respuestaDialogo$= matDialogRefModalEditarUsuario.afterClosed();
-    respuestaDialogo$
-      .subscribe((datos) =>{
-        console.log('datos', datos);
-        if(datos)
-        {
-          this.editarUsuarioHTTP(usuario.id, datos);
-        }else {
+      .open(
+        ModalEditarUsuarioComponent,
+        {width: '500px', data: {usuario}}
+      );
+    const respuestaDialogo$ = matDialogRefModalEditarUsuario
+      .afterClosed();
 
-        }
+    respuestaDialogo$
+      .subscribe(
+        (datos) => { // try
+          console.log('Datos', datos);
+          if (datos) {
+            this.editarUsuarioHTTP(usuario.id, datos);
+          } else {
+            // undefined
+          }
         },
-        (error)=>{
-        console.log('Error', error);
+        (error) => { // catch
+          console.log('Error', error);
         }
       );
   }
@@ -90,27 +88,27 @@ export class AppComponent implements OnInit{
   editarUsuarioHTTP(id: number, datos) {
     const usuarioEditado$ = this._usuarioRestService
       .editar(id, datos);
-
     usuarioEditado$
       .subscribe(
-        (usuarioEditado: any) => {
+        (usuarioEditado: any) => { // try
           console.log(usuarioEditado);
-          const indice = this.usuarios.findIndex((usuario)=>{
-            return usuario.id ===id;
-          });
-
+          const indice = this.usuarios
+            .findIndex(
+              (usuario) => {
+                return usuario.id === id;
+              }
+            );
           this.usuarios[indice].nombre = datos.nombre;
           this.usuarios[indice].apellido = datos.apellido;
           this.usuarios[indice].correo = datos.correo;
           this.usuarios[indice].password = datos.password;
 
         },
-        (error) => {
+        (error) => { // catch
           console.error(error)
         }
       )
   }
-
 
 
   eliminar(usuario) {

@@ -13,7 +13,8 @@ import {Observable} from "rxjs";
 export  class UsuarioRestService
 {
   //inyeccion de dependencias
-url= environment.url+'/usuario';
+  url = environment.url + '/usuario';
+
   constructor(
     private readonly _httpClient : HttpClient //->Servicio ->http PAR APODER HACER PETICIONE
   )
@@ -21,11 +22,15 @@ url= environment.url+'/usuario';
 
   }
 
-  editar( id: number, datos) : Observable<any>
-  {
-    const urlEditar = this.url + '/'+ id;
-    return this._httpClient.put(urlEditar, datos);
+  editar(id: number, datos): Observable<any> {
+    const urlEditar = this.url + '/' + id;
+    return this._httpClient
+      .put(
+        urlEditar,
+        datos
+      );
   }
+
 
 }
 
