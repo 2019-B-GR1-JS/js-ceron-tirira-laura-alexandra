@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
   apellidoFiltrado = '';
   correoFiltrado = '';
   passwordFiltrado = '';
-
+  busquedaUsuario ='';
   //inyeccion de dependencias
   //dependencias -> servicios
   //pueden ser usados en los componentes.
@@ -84,7 +84,6 @@ export class AppComponent implements OnInit{
         }
       );
   }
-
   editarUsuarioHTTP(id: number, datos) {
     const usuarioEditado$ = this._usuarioRestService
       .editar(id, datos);
@@ -109,10 +108,44 @@ export class AppComponent implements OnInit{
         }
       )
   }
-
-
   eliminar(usuario) {
     console.log('Eliminando usuario', usuario);
+
+    const eliminar$ = this._usuarioRestService
+      .eliminar(usuario.id);
+
+    eliminar$
+      .subscribe( usuarioEliminado=> {
+          console.log(usuarioEliminado);
+          //indice eliminar del frons end del arrays de usuarios
+          const indice = this.usuarios
+            .findIndex(
+              (usuarioBuscado) => {
+                return usuarioBuscado.id === usuario.id;
+              }
+            );
+          this.usuarios.splice(indice, 1);
+
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+  }
+
+  buscarUsuarioPorNombre()
+  {
+   const busqueda$ = this._usuarioRestService
+     .buscar(this.busquedaUsuario);
+
+   busqueda$
+     .subscribe( usuarios=> {
+       this.usuarios = usuarios;
+     },
+     (error) => {
+     console.error(error);
+     }
+     )
   }
 
   usuariosFiltrados() {
@@ -138,6 +171,21 @@ export class AppComponent implements OnInit{
         }
       );
   }
+
+
+  //
+  //
+  ///
+  //
+  //inicio
+//login
+  //gestion de usuarios
+      //gestion de libros
+  //cada ruta es un componente
+
+
+
+
 
 }
 

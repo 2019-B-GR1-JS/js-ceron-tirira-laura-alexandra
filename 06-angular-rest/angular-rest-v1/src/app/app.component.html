@@ -1,3 +1,39 @@
+<ul> <!-- unordered list-->
+  <li>
+    <a [routerLink]="['/inicio']">Inicio</a>
+  </li>
+  <li>
+
+    <a [routerLink]="['/login']">Login</a>
+  </li>
+  <li>  <!-- routeLink es un arreglo de segmentos URL-->
+    <a [routerLink]="['/inicio','gestion-usuarios']">
+      Gestion de usuarios
+    </a>
+  </li>
+  <li>
+    <a routerLink="['/inicio','gestion-usuarios','gestion-libros']">
+    Gestion de libros
+    </a>
+  </li> <!--list item-->
+</ul>
+
+
+<h1>Gestión de usuarios</h1>
+<span class="ui-float-label">
+
+  <input id="float-input"
+         type="text"
+         size="30"
+         [(ngModel)]="busquedaUsuario"
+         pInputText>
+  <label for="float-input">
+    Buscar por nombre
+  </label>
+</span>
+<p-button label="Buscar" (click)="buscarUsuarioPorNombre()">
+</p-button>
+
 <p-table [value]="usuariosFiltrados()"
          [paginator]="true"
          [rows]="FILAS">
@@ -61,3 +97,5 @@
 </p-table>
 
 <router-outlet></router-outlet>
+<p>Pie de Pagina</p>
+
