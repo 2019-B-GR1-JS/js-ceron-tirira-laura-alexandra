@@ -23,7 +23,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/06-angular-rest/angular-rest-v1/src/app/services/rest" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -34,6 +34,9 @@
     <property name="ts.external.directory.path" value="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\04-Ionic\comidav2\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\06-angular-rest\angular-rest-v1\src\app\services\rest" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\03-Angular\componentes\dist" />
       <recent name="C:\Users\Laura\Documents\GitHub\js-ceron-tirira-laura-alexandra\00-introduccion" />
@@ -86,7 +89,11 @@
       <workItem from="1578954737916" duration="3419000" />
       <workItem from="1578974729281" duration="12028000" />
       <workItem from="1579011071153" duration="4234000" />
-      <workItem from="1579294081629" duration="7866000" />
+      <workItem from="1579294081629" duration="9082000" />
+      <workItem from="1579359105299" duration="70000" />
+      <workItem from="1579552374883" duration="7478000" />
+      <workItem from="1579960959219" duration="8279000" />
+      <workItem from="1580157807429" duration="6305000" />
     </task>
     <servers />
   </component>

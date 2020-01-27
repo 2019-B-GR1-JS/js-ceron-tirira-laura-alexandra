@@ -1,63 +1,24 @@
-<p-table [value]="usuariosFiltrados()"
-         [paginator]="true"
-         [rows]="FILAS">
-  <ng-template pTemplate="caption">
-    Lista de Usuarios
-  </ng-template>
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Correo</th>
-      <th>Password</th>
-      <th>Acciones</th>
-    </tr>
-    <tr>
-      <th>
-        <input type="text"
-               pInputText
-               name="nombre"
-               [(ngModel)]="nombreFiltrado"
-        />
-      </th>
-      <th>
-        <input type="text"
-               pInputText
-               name="apellido"
-               [(ngModel)]="apellidoFiltrado"/>
-      </th>
-      <th>
-        <input type="text"
-               pInputText
-               name="correo"
-               [(ngModel)]="correoFiltrado"
-        />
-      </th>
-      <th>
-        <input type="text"
-               pInputText
-               name="password"
-               [(ngModel)]="passwordFiltrado"
-        />
-      </th>
-      <th>
-      </th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-usuario>
-    <tr>
-      <td>{{usuario.nombre}}</td>
-      <td>{{usuario.apellido}}</td>
-      <td>{{usuario.correo}}</td>
-      <td>{{usuario.password}}</td>
-      <td>
-        <p-button label="EDITAR" (click)="editar(usuario)">
-        </p-button>
-        <p-button label="ELIMINAR" (click)="eliminar(usuario)">
-        </p-button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+<ul> <!-- unordered list-->
+  <li>
+    <a [routerLink]="['/inicio']">Inicio</a>
+  </li>
+  <li>
+    <a [routerLink]="['/login']">Login</a>
+  </li>
+  <li>  <!-- routeLink es un arreglo de segmentos URL-->
+    <a [routerLink]="['/inicio','gestion-usuarios']">
+      Gestion de usuarios
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/inicio','gestion-usuarios',1,'gestion-libros']">
+    Gestion de libros
+    </a>
+  </li> <!--list item-->
+</ul>
+
+
 
 <router-outlet></router-outlet>
+<p>Pie de Pagina</p>
+
