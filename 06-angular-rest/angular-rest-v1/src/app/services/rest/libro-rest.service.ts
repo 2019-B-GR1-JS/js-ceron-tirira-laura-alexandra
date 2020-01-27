@@ -10,10 +10,10 @@ import {Observable} from "rxjs";
   providedIn : 'root'
 })
 
-export  class UsuarioRestService
+export  class LibroRestService
 {
   //inyeccion de dependencias
-  url = environment.url + '/usuario';
+  url = environment.url + '/libro';
 
   constructor(
     private readonly _httpClient : HttpClient //->Servicio ->http PAR APODER HACER PETICIONE
@@ -44,7 +44,7 @@ crear(datos): Observable<any>
     let consulta ='';
     if (busqueda)
     {
-      consulta = '?nombre=' + busqueda;
+      consulta = '?' + busqueda;
     }
     const urlBuscar = this.url + consulta;
     return this._httpClient

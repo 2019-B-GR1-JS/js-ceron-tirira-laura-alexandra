@@ -22,10 +22,12 @@ password="";
 
   ngOnInit() {
     console.log('datos en modal', this.data);
-    this.nombre = this.data.usuario.nombre;
-    this.apellido = this.data.usuario.apellido;
-    this.correo = this.data.usuario.correo;
-    this.password = this.data.usuario.password;
+    if (this.data != null) {
+      this.nombre = this.data.usuario.nombre;
+      this.apellido = this.data.usuario.apellido;
+      this.correo = this.data.usuario.correo;
+      this.password = this.data.usuario.password;
+    }
   }
 
   cancelar()
