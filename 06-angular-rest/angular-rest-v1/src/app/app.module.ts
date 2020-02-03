@@ -20,6 +20,8 @@ import { RutaCrearLibroComponent } from './rutas/ruta-crear-libro/ruta-crear-lib
 import { RutaBuscarLibroComponent } from './rutas/ruta-buscar-libro/ruta-buscar-libro.component';
 import { RutaEditaLibroComponent } from './rutas/ruta-edita-libro/ruta-edita-libro.component';
 import {LibroRestService} from "./services/rest/libro-rest.service";
+import {AuthServices} from "./services/auth/auth.services";
+import {EstaLogeadoPolicy} from "./services/auth/politicas/esta-logeado.policy";
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,9 @@ import {LibroRestService} from "./services/rest/libro-rest.service";
   ],
   providers: [ //servicios
     UsuarioRestService,
-    LibroRestService
+    LibroRestService,
+    AuthServices,
+    EstaLogeadoPolicy,
   ],
   bootstrap: [AppComponent]
 })
