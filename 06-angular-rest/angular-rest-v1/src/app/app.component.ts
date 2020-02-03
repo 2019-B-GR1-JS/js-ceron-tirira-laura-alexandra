@@ -6,6 +6,7 @@ import {ModalEditarUsuarioComponent} from "./modales/modal-editar-usuario/modal-
 import {addThemeToAppStyles} from "@angular/material/schematics/ng-add/theming/theming";
 import {error} from "util";
 import {UsuarioRestService} from "./services/rest/usuario-rest.service";
+import {AuthServices} from "./services/auth/auth.services";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import {UsuarioRestService} from "./services/rest/usuario-rest.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-constructor(){}
+constructor(private readonly _authService: AuthServices){}
 ngOnInit(): void {
 }
 

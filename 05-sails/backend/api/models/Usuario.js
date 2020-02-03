@@ -21,6 +21,12 @@ module.exports = {
       type:'string'
     },
 
+    rol:{
+      type:'string'
+    },
+
+
+
     librosDelUsuario:{
       collection:'libro', //nombre del modelo hijo
       via: 'idUsuario'  //nombre del campo foreing key en la tabala hijo

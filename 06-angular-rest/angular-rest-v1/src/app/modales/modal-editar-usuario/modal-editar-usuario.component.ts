@@ -12,6 +12,7 @@ nombre="";
 apellido="";
 correo="";
 password="";
+rol="";
 
   constructor(
     public dialogRef: MatDialogRef<ModalEditarUsuarioComponent>,
@@ -27,6 +28,7 @@ password="";
       this.apellido = this.data.usuario.apellido;
       this.correo = this.data.usuario.correo;
       this.password = this.data.usuario.password;
+      this.rol = this.data.usuario.rol;
     }
   }
 
@@ -41,7 +43,8 @@ password="";
       nombre:this.nombre,
       apellido:this.apellido,
       correo:this.correo,
-      password:this.password})
+      password:this.password,
+      rol:this.rol})
   }
 
 }

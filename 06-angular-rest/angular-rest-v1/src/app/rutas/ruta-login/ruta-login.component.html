@@ -1,1 +1,25 @@
-<p>ruta-login works!</p>
+<form #formularioEditar="ngForm">
+  <div>
+    <label for="correoId">
+      Correo
+    </label>
+    <input id="correoId"
+           type="text"
+           name="correo"
+           [(ngModel)]="correo"
+    >
+  </div>
+  <div>
+    <label for="passwordId">
+      Password
+    </label>
+    <input id="passwordId"
+           type="password"
+           name="password"
+           [(ngModel)]="password"
+    >
+  </div>
+</form>
+<button (click)="login()">
+  Login
+</button>
