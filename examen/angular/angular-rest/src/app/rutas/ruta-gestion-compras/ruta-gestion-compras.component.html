@@ -1,0 +1,36 @@
+<h1>Mis compras</h1>
+<p-button [routerLink]="['/inicio','gestion-cab-carrito']" label="Nueva Compra" >
+</p-button>
+<br>
+<br>
+<p-table  [value]="comprasFiltradas()"
+         [paginator]="true"
+         [rows]="FILAS">
+  <ng-template pTemplate="caption">
+    Lista de compras
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Curso</th>
+      <th>Precio</th>
+      <th>Dirección</th>
+      <th>Cantidad</th>
+      <th>SubTotal</th>
+      <th>Total</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-compra>
+    <tr>
+      <td>{{compra.Fecha | date:'dd-MM-yyyy'}}</td>
+      <td>{{compra.Estado}}</td>
+      <td>{{compra.Curso}}</td>
+      <td>{{compra.Precio | currency }}</td>
+      <td>{{compra.Direccion}}</td>
+      <td>{{compra.Cantidad}}</td>
+      <td>{{compra.SubTotal}}</td>
+      <td>{{compra.Total}}</td>
+    </tr>
+  </ng-template>
+</p-table>
