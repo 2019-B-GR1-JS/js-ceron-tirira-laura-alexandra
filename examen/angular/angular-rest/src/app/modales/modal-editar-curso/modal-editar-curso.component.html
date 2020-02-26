@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Curso</h1>
+<div mat-dialog-content>
+  <form #formularioEditar="ngForm">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Codigo" id="CodigoId" type="text" name="codigo" [(ngModel)]="codigo"
+             required minlength="3" maxlength="6">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Nombre" id="nombreId" type="text" name="nombre" [(ngModel)]="nombre"
+                   required minlength="3" maxlength="30">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripción</mat-label>
+      <input matInput placeholder="Descripción" id="descripcionId" type="text" name="descripcion" [(ngModel)]="descripcion">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label for="materiaId">Materia</mat-label>
+      <input matInput placeholder="Materia" id="materiaId" type="text" name="materia" [(ngModel)]="materia"
+                   required minlength="3" maxlength="15">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Precio</mat-label>
+      <input matInput placeholder="Precio" id="PrecioId" type="number" name="precio" [(ngModel)]="precio"
+              required step="1" min="1" max="100">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <mat-label>Profesor</mat-label>
+      <mat-select id="profesorId" name="idProfesor" [(ngModel)]="idProfesor" required>
+        <mat-option [value]="prof.id" *ngFor="let prof of profesores" >
+          {{prof.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button label="Cancelar" styleClass="ui-button-secondary" (click)="cancelar()">Cancelar</button>
+  <button mat-button label="Aceptar" [disabled]="formularioEditar.invalid" styleClass="ui-button-success" (click)="aceptar()">Aceptar</button>
+</div>

@@ -1,0 +1,32 @@
+<div *ngIf="_authService.estaLogeado">
+  <div class="right">
+  <mat-label>{{_authService.sesion.correo}}</mat-label>
+  <button mat-button id="salir" name="salir" (click)="salir()">Salir</button>
+
+  </div>
+
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/inicio']">Inicio</button>
+
+  <button *ngIf="_authService.sesion.rol === 'Administrador'"
+          mat-menu-item [routerLink]="['/inicio','gestion-profesor']">
+          Gestion de profesores
+  </button>
+  <button *ngIf="_authService.sesion.rol === 'Administrador'"
+          mat-menu-item [routerLink]="['/inicio','gestion-curso']">
+          Gestion de cursos
+  </button>
+  <button mat-menu-item [routerLink]="['/inicio','gestion-usuarios']">
+          Gestion de usuarios
+  </button>
+  <button *ngIf="_authService.sesion.rol === 'Usuario'"
+          mat-menu-item [routerLink]="['/inicio','gestion-compras']">
+          Compras
+  </button>
+</mat-menu>
+
+</div>
+
+<router-outlet></router-outlet>

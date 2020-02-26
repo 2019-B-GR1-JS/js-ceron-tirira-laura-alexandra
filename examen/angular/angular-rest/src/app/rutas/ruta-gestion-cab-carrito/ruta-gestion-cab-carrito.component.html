@@ -1,0 +1,91 @@
+<h1>Compras</h1>
+<span class="ui-float-label">
+
+  <input id="float-input"
+         type="text"
+         size="30"
+         [(ngModel)]="busquedaCurso"
+         pInputText>
+  <label for="float-input">
+    Buscar por nombre
+  </label>
+</span>
+<br>
+<p-button label="Buscar" (click)="buscarCursoPorNombre()">
+</p-button>
+<br>
+<br>
+<p-table [value]="cursosFiltrados()"
+         [paginator]="true"
+         [rows]="FILAS">
+  <ng-template pTemplate="caption">
+   Cursos Disponibles
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Materia</th>
+      <th>Precio</th>
+      <th>
+        Acciones
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <input type="text"
+               pInputText
+               name="codigo"
+               [(ngModel)]="codigoFiltrado"
+        />
+      </th>
+      <th>
+        <input type="text"
+               pInputText
+               name="nombre"
+               [(ngModel)]="nombreFiltrado"/>
+      </th>
+      <th>
+        <input type="text"
+               pInputText
+               name="descripcion"
+               [(ngModel)]="descripcionFiltrado"
+        />
+      </th>
+      <th>
+        <input type="text"
+               pInputText
+               name="materia"
+               [(ngModel)]="materiaFiltrado"
+        />
+      </th>
+      <th>
+        <input type="text"
+               pInputText
+               name="precio"
+               [(ngModel)]="precioFiltrado"
+        />
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-curso>
+    <tr>
+      <td>{{curso.codigo}}</td>
+      <td>{{curso.nombre}}</td>
+      <td>{{curso.descripcion}}</td>
+      <td>{{curso.materia}}</td>
+      <td>{{curso.precio}}</td>
+      <td>
+        <a [routerLink]="['/inicio','gestion-cab-carrito','gestion-det-carrito',curso.id]">
+          Comprar Curso
+        </a>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+
+

@@ -1,0 +1,122 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" >
+      <ng-template matStepLabel>Nueva compra</ng-template>
+      <table id="compras">
+        <tr>
+          <td>
+            <label>Fecha:</label>
+          </td>
+          <td>
+            {{fecha | date:'dd-MM-yyyy'}}
+          </td>
+        <tr>
+          <td><label>Curso:</label> </td>
+          <td>{{nombre}}</td>
+        </tr>
+        <tr>
+          <td><label>Materia:</label></td>
+          <td>{{materia}}</td>
+        </tr>
+        <tr>
+          <td><label>Precio:</label></td>
+          <td>{{precio}}</td>
+        </tr>
+        <tr>
+          <td><label>Dirección:</label></td>
+          <td>
+            <mat-form-field>
+              <input matInput
+                     type="text" name="direccion" [(ngModel)]="direccion"
+                     formControlName="firstCtrl" required minlength="3" maxlength="30">
+            </mat-form-field>
+
+          </td>
+        </tr>
+        <tr>
+          <td><label>Cantidad</label>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput type="number"
+                     name="cantidad" [(ngModel)]="cantidad"
+                     (change)="obtenerCantidad($event)"
+                     formControlName="firstCtrl1" required step="1" min="1" max="10">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Subtotal:</label></td>
+          <td>{{subtotal}}</td>
+        </tr>
+        <tr>
+          <td><label>Total:</label></td>
+          <td>{{total}}</td>
+        </tr>
+        <tr></tr>
+      </table>
+      <div>
+        <button mat-button matStepperNext [disabled]="firstFormGroup.invalid" (click)="comprar()">Guardar</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Creado</ng-template>
+      <table>
+        <tr>
+          <td>
+            <label>Fecha:</label>
+          </td>
+          <td>
+            {{fecha | date:'dd-MM-yyyy'}}
+          </td>
+        <tr>
+          <td><label>Curso:</label> </td>
+          <td>{{nombre}}</td>
+        </tr>
+        <tr>
+          <td><label>Precio:</label></td>
+          <td>{{precio}}</td>
+        </tr>
+        <tr>
+          <td><label>Dirección:</label></td>
+          <td>
+           <label>{{direccion}}</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Cantidad</label>
+          </td>
+          <td>
+           <label>{{cantidad}}</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Subtotal:</label></td>
+          <td>{{subtotal}}</td>
+        </tr>
+        <tr>
+          <td><label>Total:</label></td>
+          <td>{{total}}</td>
+        </tr>
+        <tr></tr>
+      </table>
+
+      <div>
+        <button mat-button [routerLink]="['/inicio','gestion-compras']">Ver lista de compras</button>
+        <button mat-button matStepperNext (click)="pagar()">Pagar</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Comprado</ng-template>
+    <p>Compra Exitosa!!!</p>
+    <p>{{estadoMostrar}}</p>
+    <div>
+      <button mat-button [routerLink]="['/inicio','gestion-compras']">Ver lista de compras</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
